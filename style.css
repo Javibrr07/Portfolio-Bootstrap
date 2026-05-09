@@ -1,0 +1,56 @@
+/* CONFIGURACIÓN DE LAS TARJETAS DE PROYECTOS */
+
+/* Convertimos la tarjeta en un contenedor horizontal (Flexbox) */
+#proyectos .card {
+    display: flex;
+    flex-direction: row !important; /* Fuerza la fila: Imagen izquierda, cuerpo derecha */
+    align-items: center;            /* Centra la imagen verticalmente */
+    padding: 10px;                  /* Espacio interno para que no respire pegado al borde */
+    overflow: hidden;
+}
+
+/* AJUSTE DE LA IMAGEN */
+#proyectos .card-img-top {
+    /* Aquí controlas el tamaño. Cámbialo a tu gusto: */
+    width: 80px !important;   
+    height: 80px !important;
+    
+    object-fit: contain;      /* Para que la imagen no se deforme */
+    border-radius: 8px;       /* Esquinas redondeadas suaves */
+    margin-right: 15px;       /* Separación con el texto */
+    
+    /* Quitamos estilos de Bootstrap que sobran */
+    flex-shrink: 0;           /* Evita que la imagen se aplaste si hay mucho texto */
+    border-bottom: none;      
+}
+
+/* AJUSTE DEL CUERPO (TEXTO) */
+#proyectos .card-body {
+    padding: 10px !important;
+    flex: 1;                  /* El texto usa todo el espacio restante */
+}
+
+/* Ajuste de títulos y textos para que no se vean gigantes al lado de la foto */
+#proyectos .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+#proyectos .card-text {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+
+/* RESPONSIVE: En móviles muy pequeños (como un iPhone antiguo) 
+   volvemos a ponerlo uno arriba del otro para que no se amontone */
+@media (max-width: 400px) {
+    #proyectos .card {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    #proyectos .card-img-top {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
